@@ -15,11 +15,8 @@ export async function connectDatabase(): Promise<void> {
     // Configuration des options de connexion
     const connectionOptions: mongoose.ConnectOptions = {
       dbName,
-      // Options recommandées pour les nouvelles versions de Mongoose
-      maxPoolSize: 10, // Limite le nombre de connexions simultanées
-      serverSelectionTimeoutMS: 5000, // Timeout pour la sélection du serveur
-      socketTimeoutMS: 45000, // Timeout pour les opérations socket
-      bufferCommands: false, // Désactive le buffering des commandes
+      ssl: true,
+      authSource: 'admin',
     };
 
     await mongoose.connect(mongoUri, connectionOptions);
