@@ -13,7 +13,7 @@ export async function connectDatabase(): Promise<void> {
 
   try {
     // Configuration des options de connexion
-    const connectionOptions: mongoose.ConnectOptions = {
+    const connectionOptions: any = {
       dbName,
       ssl: true,
       authSource: 'admin',
